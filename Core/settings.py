@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',          # If using token authentication with DRF
     'rest_auth',                          # For django-rest-auth
     'rest_framework_simplejwt',          # If using JWT authentication
+    'dj_rest_auth',          # Add this for dj-rest-auth
+    'dj_rest_auth.registration',  # Add this for registration
 ]
 
 
