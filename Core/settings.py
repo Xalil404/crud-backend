@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',          # Add this for dj-rest-auth
     'dj_rest_auth.registration',  # Add this for registration
     'drf_yasg', # for swagger and redoc api documentation
+    'corsheaders', # for api to communicate with front-end
 ]
 
 
@@ -82,10 +83,18 @@ REST_FRAMEWORK = {
     ],
 }
 
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React app URL
+]
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
