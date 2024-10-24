@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',          # If using JWT authentication
     'dj_rest_auth',          # Add this for dj-rest-auth
     'dj_rest_auth.registration',  # Add this for registration
+    'drf_yasg', # for swagger and redoc api documentation
 ]
 
 
@@ -79,6 +80,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 MIDDLEWARE = [

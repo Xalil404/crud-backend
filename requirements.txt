@@ -20,3 +20,8 @@ pyjwt==2.9.0
 django-rest-auth==0.9.5
 django-allauth==65.1.0
 dj-rest-auth==6.0.0
+drf-yasg==1.21.8
+inflection==0.5.1
+pytz==2024.2
+pyyaml==6.0.2
+uritemplate==4.1.1
