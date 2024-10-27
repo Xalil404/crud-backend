@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <title>Dates</title>
+    <!--FavIcon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+</head>
+
+<!--The django template syntax is to not show header and footer on allauth pages-->
+<body class="d-flex flex-column h-100 main-bg {% block body_class %}base-template{% endblock body_class %}">
+
+    <!-- Navigation -->
+    <div class="d-lg-none">
+        {% include 'includes/mobile-top-header.html' %}
+    </div>
+
+    <div class="d-none d-lg-block">
+        {% include 'includes/main-nav.html' %}
+    </div>
+    
+
+
+    <!--Sign in / sign out notifications-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <main class="flex-shrink-0 main-bg">
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+<footer class="mt-auto d-flex flex-wrap justify-content-between align-items-center py-3 my-4"> 
+    <a class="footer" href="{% url 'home' %}">
+        <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729341444/Screenshot_2024-10-19_at_1.36.53_PM-removebg-preview_lr1fpv.png"
+            alt="Logo" class="logo-image" style="width: 200px; margin-left: 20px;">
+        <ul class="nav col-md-4 justify-content-end">
+            
+            <li class="nav-item px-2"><a href="https://www.termsfeed.com/live/1fd2ca25-0553-48c4-97d8-308e55709144" class="nav-link px-2 text-dark" target="_blank"
+                rel="Medium Terms Policy">Terms</a></li>
+            <li class="nav-item px-2"><a href="https://www.termsfeed.com/live/ba80401d-3f01-4082-96ce-a0196d9cd3ac" class="nav-link px-2 text-dark" target="_blank"
+                rel="Medium Privacy Policy">Privacy</a></li>
+        </ul>
+</footer>
+
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2500);
+    </script>
+</body>
+
+</html>
