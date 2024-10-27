@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'ProfileAPI',
     'BirthdayAPI',
+    'AnniversaryAPI',
     'rest_framework',                     # Required for Django REST framework
     'rest_framework.authtoken',          # If using token authentication with DRF
     'rest_auth',                          # For django-rest-auth
