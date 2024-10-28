@@ -35,6 +35,9 @@ ALLOWED_HOSTS = [
     '127.0.0.1', 
     'localhost',
     'crud-backend-for-react-841cbc3a6949.herokuapp.com',
+    'crud-frontend-steel.vercel.app',
+    'crud-frontend-git-main-xalil404s-projects.vercel.app',
+    'crud-frontend-xalil404s-projects.vercel.app',
 ]
 
 
@@ -114,11 +117,16 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React app URL
+    "https://crud-frontend-steel.vercel.app",
+    "https://crud-frontend-git-main-xalil404s-projects.vercel.app",
+    "https://crud-frontend-xalil404s-projects.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
-    "https://your-production-domain.com",  # Add production domain here
+    "https://crud-frontend-steel.vercel.app",
+    "https://crud-frontend-git-main-xalil404s-projects.vercel.app",
+    "https://crud-frontend-xalil404s-projects.vercel.app",
 ]
 
 
