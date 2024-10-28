@@ -34,7 +34,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1', 
     'localhost',
-    'crud-backend-for-react-841cbc3a6949.herokuapp.com,'
+    'crud-backend-for-react-841cbc3a6949.herokuapp.com',
 ]
 
 
