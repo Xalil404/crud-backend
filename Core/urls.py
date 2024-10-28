@@ -40,6 +40,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('dj_rest_auth.urls')),  # login/logout/password reset
     path('auth/registration/', include('dj_rest_auth.registration.urls')),  # user registration
+    path('accounts/', include('allauth.urls')),
     path('api/', include('ProfileAPI.urls')),
     path('api/', include('BirthdayAPI.urls')),
     path('api/', include('AnniversaryAPI.urls')),
