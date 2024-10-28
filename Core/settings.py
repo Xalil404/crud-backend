@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     'BirthdayAPI',
     'AnniversaryAPI',
     'HolidayAPI',
-    'google_auth',
     'rest_framework',                     # Required for Django REST framework
     'rest_framework.authtoken',          # If using token authentication with DRF
     'rest_auth',                          # For django-rest-auth
