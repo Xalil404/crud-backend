@@ -25,9 +25,9 @@ from drf_yasg import openapi
 # for swagger and redoc api docs
 schema_view = get_schema_view(
     openapi.Info(
-        title="Your API Title",
+        title="Dates API",
         default_version='v1',
-        description="Test description",
+        description="API endpoints for the Dates React Frontend & iOS mobile applications",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="contact@yourapi.local"),
         license=openapi.License(name="BSD License"),
