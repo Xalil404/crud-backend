@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'BirthdayAPI',
     'AnniversaryAPI',
     'HolidayAPI',
+    'GoogleAuth',
     'rest_framework',                     # Required for Django REST framework
     'rest_framework.authtoken',          # If using token authentication with DRF
     'rest_auth',                          # For django-rest-auth
@@ -85,6 +86,8 @@ ACCOUNT_EMAIL_VERIFICATION = "optional"
 LOGIN_REDIRECT_URL = 'https://crud-frontend-steel.vercel.app/dashboard'
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
+
+SOCIALACCOUNT_STORE_TOKENS = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

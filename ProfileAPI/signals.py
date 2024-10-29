@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from .models import Profile
 
+# for google authentication
+from django.contrib.auth.signals import user_logged_in
+from rest_framework.authtoken.models import Token
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -12,3 +15,10 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+
+# for google authentication
+@receiver(user_logged_in)
+def create_auth_token(sender, user, request, **kwargs):
+    if not Token.objects.filter(user=user).exists():
+        Token.objects.create(user=user)
