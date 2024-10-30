@@ -101,6 +101,9 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+# settings.py
+GOOGLE_CLIENT_ID = '17966200055-rc9cu06jutt8mo0cqob43vhnejvbltd4.apps.googleusercontent.com'
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',

@@ -1,27 +1,41 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+import json
 from google.oauth2 import id_token
 from google.auth.transport import requests
-from django.contrib.auth import get_user_model
-from rest_framework import status
+from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.conf import settings
 
-User = get_user_model()
+@csrf_exempt
+def google_auth(request):
+    if request.method == 'POST':
+        body = json.loads(request.body)
+        token = body.get('token')
 
-@api_view(['POST'])
-def google_login(request):
-    token = request.data.get('token')
-    try:
-        # Verify the token with Google's API
-        idinfo = id_token.verify_oauth2_token(token, requests.Request(), YOUR_CLIENT_ID)
+        try:
+            # Verify the token with Google
+            idinfo = id_token.verify_oauth2_token(token, requests.Request(), settings.GOOGLE_CLIENT_ID)
+            email = idinfo['email']
+            first_name = idinfo.get('given_name', '')
+            last_name = idinfo.get('family_name', '')
 
-        # Get user info
-        email = idinfo['email']
-        name = idinfo['name']
+            # Check if user exists; if not, create a new one
+            user, created = User.objects.get_or_create(
+                email=email,
+                defaults={
+                    'username': email.split('@')[0],
+                    'first_name': first_name,
+                    'last_name': last_name,
+                }
+            )
 
-        # Get or create the user
-        user, created = User.objects.get_or_create(email=email, defaults={'username': email, 'first_name': name})
+            # Create or get a token for the user
+            from rest_framework.authtoken.models import Token
+            token, _ = Token.objects.get_or_create(user=user)
 
-        return Response({'message': 'User logged in successfully', 'user': {'email': email, 'name': name}}, status=status.HTTP_200_OK)
+            return JsonResponse({'token': token.key}, status=200)
 
-    except ValueError:
-        return Response({'error': 'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
+        except ValueError:
+            return JsonResponse({'error': 'Invalid token'}, status=400)
+
+    return JsonResponse({'error': 'Only POST method is allowed'}, status=405)
