@@ -1,7 +1,7 @@
 # CRUD Backend - Dates
 Dates is a platform which allows you to create and save the most important Birthdays, anniversaries and holidays so that you never forget an important date ever again.
 
-This is the back-end part of the project. The front-end part can be found [here]() and mobile app part can be found [here]().
+This is the back-end part of the project. The front-end part can be found [here](https://github.com/Xalil404/crud-frontend-) and mobile app part can be found [here](https://github.com/Xalil404/Dates-iOS).
 
 Link to live site [here]().
 <p align="center">
@@ -11,4 +11,4 @@ Link to live site [here]().
 * Backend using Django and python
 * Frontend using React
 * iOS Mobile app using SWIFT
-* Front-end and mobile app communicate to a single database using REST API
+* Front-end and mobile app communicate to a single database using REST API; [Swagger](https://crud-backend-for-react-841cbc3a6949.herokuapp.com/swagger/) & [Redoc](https://crud-backend-for-react-841cbc3a6949.herokuapp.com/redoc/) links.
