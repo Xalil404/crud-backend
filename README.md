@@ -12,3 +12,7 @@ Link to live site [here]().
 * Frontend using React
 * iOS Mobile app using SWIFT
 * Front-end and mobile app communicate to a single database using REST API; [Swagger](https://crud-backend-for-react-841cbc3a6949.herokuapp.com/swagger/) & [Redoc](https://crud-backend-for-react-841cbc3a6949.herokuapp.com/redoc/) links.
+
+## Credits
+* This [tutorial](https://www.youtube.com/watch?v=CF365JbQSh8) for google authentication.
+* This [post](https://stackoverflow.com/questions/76590131/error-while-build-ios-app-in-xcode-sandbox-rsync-samba-13105-deny1-file-w) for annoying bug compile after adding google authentication.
