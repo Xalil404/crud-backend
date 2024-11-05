@@ -17,7 +17,7 @@ def google_auth(request):
 
         try:
             # Verify the token with Google
-            idinfo = id_token.verify_oauth2_token(token, requests.Request(), settings.GOOGLE_CLIENT_ID)
+            idinfo = id_token.verify_oauth2_token(token, requests.Request(), "17966200055-rc9cu06jutt8mo0cqob43vhnejvbltd4.apps.googleusercontent.com")
             email = idinfo['email']
             first_name = idinfo.get('given_name', '')
             last_name = idinfo.get('family_name', '')
