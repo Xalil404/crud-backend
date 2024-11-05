@@ -101,8 +101,11 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-# settings.py
-GOOGLE_CLIENT_ID = '17966200055-rc9cu06jutt8mo0cqob43vhnejvbltd4.apps.googleusercontent.com'
+# Top one is for web & second one is for mobile
+GOOGLE_CLIENT_IDs = [
+    '17966200055-rc9cu06jutt8mo0cqob43vhnejvbltd4.apps.googleusercontent.com'
+    '903042465337-0hsb0dhmr6r2fged0ieri6s45l310ni5.apps.googleusercontent.com'
+] 
 
 
 AUTHENTICATION_BACKENDS = (
