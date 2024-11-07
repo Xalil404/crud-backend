@@ -172,6 +172,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'Core.middleware.CsrfExemptMiddleware', # to make csrf exempt for mobile app registration 
 ]
 
 ROOT_URLCONF = 'Core.urls'
