@@ -50,6 +50,7 @@ urlpatterns = [
     path('api/', include('BirthdayAPI.urls')),
     path('api/', include('AnniversaryAPI.urls')),
     path('api/', include('HolidayAPI.urls')),
+    path('api/', include('Contact.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/auth/google/', google_auth, name='google-auth'),

@@ -28,8 +28,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'BirthdayAPI',
     'AnniversaryAPI',
     'HolidayAPI',
+    'Contact',
     'GoogleAuth',
     'rest_framework',                     # Required for Django REST framework
     'rest_framework.authtoken',          # If using token authentication with DRF
