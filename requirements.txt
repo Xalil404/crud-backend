@@ -28,3 +28,4 @@ uritemplate==4.1.1
 django-cors-headers==4.5.0
 cryptography==43.0.3
 google-auth==2.35.0
+whitenoise==6.8.2
