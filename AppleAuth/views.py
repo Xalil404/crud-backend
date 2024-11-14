@@ -6,7 +6,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import AppleAuthSerializer
 
+from rest_framework.permissions import AllowAny
+
 @api_view(['POST'])
+@permission_classes([AllowAny])  # This allows unauthenticated access
 def apple_auth(request):
     # Deserialize the incoming data using the serializer
     serializer = AppleAuthSerializer(data=request.data)
