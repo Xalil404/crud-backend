@@ -121,6 +121,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+APPLE_CLIENT_ID = os.environ.get('APPLE_CLIENT_ID', 'com.crud.Dates')
+
 
 # Top one is for web & second one is for mobile
 GOOGLE_CLIENT_IDS = [
