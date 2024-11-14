@@ -28,8 +28,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'AnniversaryAPI',
     'HolidayAPI',
     'Contact',
+    'AppleAuth',
     'GoogleAuth',
     'rest_framework',                     # Required for Django REST framework
     'rest_framework.authtoken',          # If using token authentication with DRF
@@ -147,6 +148,12 @@ CSRF_TRUSTED_ORIGINS = [
     "https://crud-frontend-git-main-xalil404s-projects.vercel.app",
     "https://crud-frontend-xalil404s-projects.vercel.app",
 ]
+
+APPLE_CLIENT_ID = 'com.crud.Dates'  # Your Apple client ID (App ID)
+APPLE_KEY_ID = 'X3VA6W364J'  # Key ID from the Apple Developer Console
+APPLE_TEAM_ID = 'TGGQFAW4Y5'  # Team ID from the Apple Developer Console
+APPLE_AUTH_KEY_PATH = BASE_DIR / 'private_keys' / 'AuthKey_X3VA6W364J.p8'  # Path to your Auth Key file (AuthKey_X3VA6W364J.p8)
+
 
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

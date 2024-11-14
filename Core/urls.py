@@ -27,6 +27,9 @@ from drf_yasg import openapi
 
 from GoogleAuth.views import google_auth, google_auth_mobile
 
+from AppleAuth.views import apple_auth
+
+
 # for swagger and redoc api docs
 schema_view = get_schema_view(
     openapi.Info(
@@ -55,5 +58,6 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/auth/google/', google_auth, name='google-auth'),
     path('api/auth/google/mobile/', google_auth_mobile, name='google-auth-mobile'),
+    path('api/auth/apple/mobile/', apple_auth, name='apple-auth'),
 ]
 
