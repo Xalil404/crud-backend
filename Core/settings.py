@@ -91,6 +91,18 @@ SOCIALACCOUNT_LOGIN_ON_GET = True
 
 SOCIALACCOUNT_STORE_TOKENS = True
 
+#SOCIALACCOUNT_PROVIDERS = {
+#    'google': {
+#        'SCOPE': [
+#            'profile',
+#            'email',
+#        ],
+#        'AUTH_PARAMS': {
+#            'access_type': 'online',
+#        }
+#    }
+#}
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -100,8 +112,15 @@ SOCIALACCOUNT_PROVIDERS = {
         'AUTH_PARAMS': {
             'access_type': 'online',
         }
+    },
+    'apple': {
+        'CLIENT_ID': os.environ.get('APPLE_CLIENT_ID', 'com.crud.Dates'),  # Default to your client ID
+        'SECRET_KEY': os.environ.get('APPLE_AUTH_KEY_PATH', str(BASE_DIR / 'private_keys' / 'AuthKey_X3VA6W364J.p8')),  # Make sure the path is correct
+        'TEAM_ID': os.environ.get('APPLE_TEAM_ID', 'TGGQFAW4Y5'),  # Default to your Team ID
+        'KEY_ID': os.environ.get('APPLE_KEY_ID', 'X3VA6W364J'),  # Default to your Key ID
     }
 }
+
 
 # Top one is for web & second one is for mobile
 GOOGLE_CLIENT_IDS = [
@@ -149,10 +168,11 @@ CSRF_TRUSTED_ORIGINS = [
     "https://crud-frontend-xalil404s-projects.vercel.app",
 ]
 
-APPLE_CLIENT_ID = 'com.crud.Dates'  # Your Apple client ID (App ID)
-APPLE_KEY_ID = 'X3VA6W364J'  # Key ID from the Apple Developer Console
-APPLE_TEAM_ID = 'TGGQFAW4Y5'  # Team ID from the Apple Developer Console
-APPLE_AUTH_KEY_PATH = BASE_DIR / 'private_keys' / 'AuthKey_X3VA6W364J.p8'  # Path to your Auth Key file (AuthKey_X3VA6W364J.p8)
+
+#APPLE_CLIENT_ID = 'com.crud.Dates'  # Your Apple client ID (App ID)
+#APPLE_KEY_ID = 'X3VA6W364J'  # Key ID from the Apple Developer Console
+#APPLE_TEAM_ID = 'TGGQFAW4Y5'  # Team ID from the Apple Developer Console
+#APPLE_AUTH_KEY_PATH = BASE_DIR / 'private_keys' / 'AuthKey_X3VA6W364J.p8'  # Path to your Auth Key file (AuthKey_X3VA6W364J.p8)
 
 
 
