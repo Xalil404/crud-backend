@@ -10,36 +10,38 @@ from rest_framework.permissions import AllowAny
 
 
 @api_view(['POST'])
-@permission_classes([AllowAny])  # This allows unauthenticated access
+@permission_classes([AllowAny])
 def apple_auth(request):
-    # Deserialize the incoming data using the serializer
+    print("Received data:", request.data)
+
     serializer = AppleAuthSerializer(data=request.data)
     if serializer.is_valid():
         apple_token = serializer.validated_data['apple_token']
+        print("Apple token received:", apple_token)  # Debugging line
+
+        if '.' not in apple_token:
+            return JsonResponse({'error': 'Invalid token format'}, status=400)
         
-        # Verify the token with Apple
         try:
-            # Apple's public key endpoint (used to decode the ID token)
             apple_public_keys_url = "https://appleid.apple.com/auth/keys"
             apple_public_keys = requests.get(apple_public_keys_url).json()
+            print("Apple public keys:", apple_public_keys)  # Debugging line
 
-            # Decode and verify the token
             decoded_token = decode_apple_token(apple_token, apple_public_keys)
-            
-            # Retrieve user's email and other details from the decoded token
+            print("Decoded token:", decoded_token)  # Debugging line
+
             email = decoded_token.get('email')
             user_id = decoded_token.get('sub')
-            
-            # Here, you can use the email or user_id to link the user to your database.
-            # If the user exists, log them in; if not, create a new user.
 
-            # For now, just return a success message with user info
             return JsonResponse({'message': 'Sign-in successful', 'email': email, 'user_id': user_id})
         
         except Exception as e:
+            print("Error during token verification:", e)  # Debugging line
             return JsonResponse({'error': str(e)}, status=400)
 
+    print("Serializer errors:", serializer.errors)  # Debugging line
     return JsonResponse({'error': 'Invalid data'}, status=400)
+
 
 
 def decode_apple_token(token, apple_public_keys):
